@@ -3,10 +3,9 @@ def uppercase(str):
     length = len(str)
     for i, c in enumerate(str):
         islast = i == length - 1
-        if islower(c):
-            print("{:c}".format(ord(c) - 32), end=("\n" if islast else ""))
-        else:
-            print(c, end=("\n" if islast else ""))
+        print("{:c}".format(ord(c) - 32 if islower(c)
+              else ord(c)), end="")
+    print("")
 
 
 def islower(c):
