@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-form = "{:c}" * 26
-print(form.format(*range(65, 91)))
+for i in range(65, 91):
+  print(chr(i), end="")
