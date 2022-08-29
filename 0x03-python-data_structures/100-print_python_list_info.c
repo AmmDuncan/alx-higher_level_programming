@@ -2,7 +2,7 @@
 
 /**
  * print_python_list_info - print info about python list
- * p: pointer to object
+ * @p: pointer to object
  */
 void print_python_list_info(PyObject *p)
 {
@@ -17,6 +17,7 @@ void print_python_list_info(PyObject *p)
 	for (i = 0; i < size; i++)
 	{
 		PyObject *obj = PyList_GetItem(p, i);
+
 		printf("Element %d: %s", PyType(obj))
 	}
 }
