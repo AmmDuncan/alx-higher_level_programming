@@ -25,4 +25,3 @@ def roman_to_int(roman_string):
                 total += current_value
             # print(f"{index}: {char}-> {current_value}")
     return total
-    
