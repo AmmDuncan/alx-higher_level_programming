@@ -9,6 +9,8 @@ def roman_to_int(roman_string):
         'D': 500,
         'M': 1000,
     }
+    if type(roman_string) != "<class 'str'>" or not roman_string:
+        return 0
     str_length = len(roman_string)
     total = 0
     for index, char in enumerate(roman_string):
