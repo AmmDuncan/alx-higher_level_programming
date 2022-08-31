@@ -9,7 +9,7 @@ def roman_to_int(roman_string):
         'D': 500,
         'M': 1000,
     }
-    if type(roman_string) != "<class 'str'>" or not roman_string:
+    if not isinstance(roman_string, str) or roman_string is None:
         return 0
     str_length = len(roman_string)
     total = 0
