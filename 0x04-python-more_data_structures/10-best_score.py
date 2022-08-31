@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    if not len(list(a_dictionary)):
+    if not a_dictionary or not len(list(a_dictionary)):
         return None
     highest_key = list(a_dictionary)[0]
     for key, value in a_dictionary.items():
