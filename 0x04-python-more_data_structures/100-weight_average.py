@@ -2,10 +2,10 @@
 def weight_average(my_list):
     if len(my_list) == 0 or my_list is None:
         return 0
-    
+
     total_weight = 0
     total_weighted_score = 0
-    
+
     for (score, weight) in my_list:
         total_weight += weight
         total_weighted_score += score * weight
