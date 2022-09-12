@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 def safe_print_list_integers(my_list=[], x=0):
+    print("{}".format(x))
     printed = i = 0
     if my_list is None:
         return printed
@@ -17,4 +18,5 @@ def safe_print_list_integers(my_list=[], x=0):
         print("")
         return printed
     except (ValueError, TypeError):
+        print("")
         return printed
