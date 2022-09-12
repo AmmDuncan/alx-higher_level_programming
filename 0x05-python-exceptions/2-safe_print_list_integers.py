@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def safe_print_list_integers(my_list=[], x=0):
     printed = i = 0
-    if my_list is None or not x:
+    if my_list is None or x is None:
         return printed
     while (printed < x):
         try:
