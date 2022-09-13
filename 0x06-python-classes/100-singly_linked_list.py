@@ -61,6 +61,48 @@ class Node:
         self.__next_node = value
 
 
+class SinglyLinkedList:
+    """Singly Linked List class"""
+
+    def __init__(self):
+        """Initialize Singly Linked List"""
+        self.__head = None
+
+    def sorted_insert(self, value):
+        """Insert new value in a sorted linked list
+
+        Args:
+            value (int): integer to insert
+        """
+        prev = None
+        cur = self.__head
+
+        while True:
+            if cur is None or cur.data > value:
+                newNode = Node(value, cur)
+                if prev is not None:
+                    prev.next_node = newNode
+                else:
+                    self.__head = newNode
+                break
+            else:
+                prev = cur
+                cur = cur.next_node
+
+    def __str__(self):
+        """Singly Linked List User Output"""
+        cur = self.__head
+        str_rep = ""
+
+        while cur is not None:
+            str_rep += "{}".format(cur.data)
+            if (cur.next_node is not None):
+                str_rep += "\n"
+            cur = cur.next_node
+
+        return str_rep
+
+
 def validate_int(val, name):
     """Validate value as integer
 
@@ -81,48 +123,3 @@ def validate_node(value, name):
     """
     if not isinstance(value, Node) and value is not None:
         raise TypeError("{} must be a Node object".format(name))
-
-
-class SinglyLinkedList:
-    """Singly Linked List class"""
-
-    def __init__(self):
-        """Initialize Singly Linked List"""
-        self.__head = None
-
-    def sorted_insert(self, value):
-        """Insert new value in a sorted linked list
-
-        Args:
-            value (int): integer to insert
-        """
-        prev = None
-        cur = self.__head
-
-        if self.__head is None:
-            newNode = Node(value, cur)
-            self.__head = newNode
-            return
-
-        while True:
-            if cur is None or cur.data > value:
-                newNode = Node(value, cur)
-                if prev is not None:
-                    prev.next_node = newNode
-                break
-            else:
-                prev = cur
-                cur = cur.next_node
-
-    def __str__(self):
-        """Singly Linked List User Output"""
-        cur = self.__head
-        str_rep = ""
-
-        while cur is not None:
-            str_rep += "{}".format(cur.data)
-            if (cur.next_node is not None):
-                str_rep += "\n"
-            cur = cur.next_node
-
-        return str_rep
