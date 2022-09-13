@@ -88,7 +88,7 @@ class SinglyLinkedList:
 
     def __init__(self):
         """Initialize Singly Linked List"""
-        self.head = None
+        self.__head = None
 
     def sorted_insert(self, value):
         """Insert new value in a sorted linked list
@@ -97,11 +97,11 @@ class SinglyLinkedList:
             value (int): integer to insert
         """
         prev = None
-        cur = self.head
+        cur = self.__head
 
-        if self.head is None:
+        if self.__head is None:
             newNode = Node(value, cur)
-            self.head = newNode
+            self.__head = newNode
             return
 
         while True:
@@ -116,7 +116,7 @@ class SinglyLinkedList:
 
     def __str__(self):
         """Singly Linked List User Output"""
-        cur = self.head
+        cur = self.__head
         str_rep = ""
 
         while cur is not None:
