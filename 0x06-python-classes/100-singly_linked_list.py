@@ -91,6 +91,11 @@ class SinglyLinkedList:
         self.head = None
 
     def sorted_insert(self, value):
+        """Insert new value in a sorted linked list
+
+        Args:
+            value (int): integer to insert
+        """
         prev = None
         cur = self.head
 
