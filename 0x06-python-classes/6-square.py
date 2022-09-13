@@ -32,14 +32,17 @@ class Square:
 
     @property
     def position(self):
+        '''Get position'''
         return self.__position
 
     @position.setter
     def position(self, value):
+        '''Set position'''
         validate_position(value)
         self.__position = value
 
     def my_print(self):
+        '''Print square'''
         if self.size == 0:
             print()
         else:
