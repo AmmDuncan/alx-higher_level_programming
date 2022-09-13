@@ -46,10 +46,10 @@ class Square:
             x, y = self.position
             for _ in range(y):
                 print()
-            for i in range(self.size):
+            for _ in range(self.size):
                 for _ in range(x):
                     print(" ", end="")
-                for j in range(self.size):
+                for _ in range(self.size):
                     print("#", end="")
                 print()
 
@@ -69,6 +69,8 @@ def validate_position(position):
     if len(position) != 2:
         raise_position_exception()
     x, y = position
+    if not isinstance(x, int) or not isinstance(y, int):
+        raise_position_exception()
     if (x < 0 or y < 0):
         raise_position_exception()
 
