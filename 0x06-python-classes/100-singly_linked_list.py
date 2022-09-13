@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Define Node Class"""
+"""Define Node Class and SinglyLinkedList"""
 
 
 class Node:
@@ -76,8 +76,48 @@ def validate_node(value, name):
     """Validate value as Node
 
     Args:
-        value (Node): value to check if is type Node
+        value (Node): value to check if is type Node or Nonde
         name (str): name to use in error message
     """
-    if not isinstance(value, Node):
+    if not isinstance(value, Node) and value is not None:
         raise TypeError("{} must be a Node object".format(name))
+
+
+class SinglyLinkedList:
+    """Singly Linked List class"""
+
+    def __init__(self):
+        """Initialize Singly Linked List"""
+        self.head = None
+
+    def sorted_insert(self, value):
+        prev = None
+        cur = self.head
+
+        if self.head is None:
+            newNode = Node(value, cur)
+            self.head = newNode
+            return
+
+        while True:
+            if cur is None or cur.data > value:
+                newNode = Node(value, cur)
+                if prev is not None:
+                    prev.next_node = newNode
+                break
+            else:
+                prev = cur
+                cur = cur.next_node
+
+    def __str__(self):
+        """Singly Linked List User Output"""
+        cur = self.head
+        str_rep = ""
+
+        while cur is not None:
+            str_rep += "{}".format(cur.data)
+            if (cur.next_node is not None):
+                str_rep += "\n"
+            cur = cur.next_node
+
+        return str_rep
