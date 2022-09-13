@@ -3,20 +3,10 @@
 
 
 class Node:
-    """Node class
-
-        Raises:
-            TypeError: data must be an integer
-            TypeError: must be a Node object
-    """
+    """Node class"""
 
     def __init__(self, data, next_node=None):
-        """Initialize Node object
-
-        Args:
-            data (int): integer to store as Node data
-            next_node (Node, optional): Pointer to next Node in list. Defaults to None.
-        """
+        """Initialize Node object"""
         validate_int(data, "data")
         validate_node(next_node, "next_node")
         self.__data = data
