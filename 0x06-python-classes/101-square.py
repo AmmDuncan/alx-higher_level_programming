@@ -73,6 +73,26 @@ class Square:
 
         return str_rep
 
+    def __repr__(self):
+        '''String representation of square'''
+        str_rep = ""
+        if self.size == 0:
+            str_rep += "\n"
+        else:
+            x, y = self.position
+            for _ in range(y):
+                str_rep += "\n"
+
+            for i in range(self.size):
+                for _ in range(x):
+                    str_rep += " "
+                for _ in range(self.size):
+                    str_rep += "#"
+                if i != self.size - 1:
+                    str_rep += "\n"
+
+        return str_rep
+
 
 def validate_size(size):
     '''Validate size of square'''
