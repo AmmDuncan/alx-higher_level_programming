@@ -2,6 +2,7 @@
 '''Define Square class with validation and area methods'''
 
 
+from multiprocessing.sharedctypes import Value
 from wsgiref import validate
 
 
@@ -10,8 +11,17 @@ class Square:
 
     def __init__(self, size=0, position=(0, 0)):
         '''Initialize Square object'''
-        validate_size(size)
-        validate_position(position)
+        if not isinstance(size, int):
+            raise TypeError('size must be an integer')
+        if size < 0:
+            raise ValueError("size must be >= 0")
+        if not isinstance(position, tuple):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if len(position) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        x, y = position
+        if (x < 0 or y < 0):
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__size = size
         self.__position = position
 
@@ -27,7 +37,10 @@ class Square:
     @size.setter
     def size(self, value):
         '''Set size attr'''
-        validate_size(value)
+        if not isinstance(value, int):
+            raise TypeError('size must be an integer')
+        if Value < 0:
+            raise ValueError("size must be >= 0")
         self.__size = value
 
     @property
@@ -38,7 +51,13 @@ class Square:
     @position.setter
     def position(self, value):
         '''Set position'''
-        validate_position(value)
+        if not isinstance(value, tuple):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        x, y = value
+        if (x < 0 or y < 0):
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     def my_print(self):
@@ -55,27 +74,3 @@ class Square:
                 for j in range(self.size):
                     print("#", end="")
                 print()
-
-
-def validate_size(size):
-    '''Validate size of square'''
-    if not isinstance(size, int):
-        raise TypeError('size must be an integer')
-    if size < 0:
-        raise ValueError("size must be >= 0")
-
-
-def validate_position(position):
-    '''Validate position of square'''
-    if not isinstance(position, tuple):
-        raise_position_exception()
-    if len(position) != 2:
-        raise_position_exception()
-    x, y = position
-    if (x < 0 or y < 0):
-        raise_position_exception()
-
-
-def raise_position_exception():
-    '''Raise position exception'''
-    raise TypeError("position must be a tuple of 2 positive integers")
