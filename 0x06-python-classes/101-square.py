@@ -58,7 +58,8 @@ class Square:
         str_rep = ""
         x, y = self.position
         for _ in range(y):
-            str_rep += "\n"
+            if (self.size > 0):
+                str_rep += "\n"
         for i in range(self.size):
             for _ in range(x):
                 str_rep += " "
