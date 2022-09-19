@@ -1,0 +1,37 @@
+Testing "4-print_square" module
+===============================
+Using "print_square" function
+-----------------------------
+
+Import print_square function
+>>> print_square = __import__("4-print_square").print_square
+
+1. Throws error if size is not and int
+>>> print_square("a")
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+2. Prints correct output with positive size
+>>> print_square(1)
+#
+
+3. Prints correct output with size 3
+>>> print_square(3)
+###
+###
+###
+
+4. Throws error when given float
+>>> print_square(2.0)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+5. Throws error when given a negative number
+>>> print_square(-3)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+
+6. Throws type error when negative floating point is provided
+>>> print_square(-2.0)
+Traceback (most recent call last):
+TypeError: size must be an integer

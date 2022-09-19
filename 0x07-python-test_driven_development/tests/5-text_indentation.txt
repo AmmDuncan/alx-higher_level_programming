@@ -1,0 +1,26 @@
+Tests for "5-text_indentation" module
+=====================================
+text_indentation
+----------------
+
+Import function
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+1. Throws error when given non string params
+>>> text_indentation(4)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+2. Prints correct output without indent characters
+>>> text_indentation("Hello")
+Hello
+
+2. Prints blank lines when either ., ?, or : are met
+>>> text_indentation("Hello.")
+Hello.
+<BLANKLINE>
+>>> text_indentation("Boy: How are you?")
+Boy:
+<BLANKLINE>
+How are you?
+<BLANKLINE>

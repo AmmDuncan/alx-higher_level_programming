@@ -1,0 +1,62 @@
+The "2-matrix_divided" module
+=============================
+
+Using the "matrix_divided" function
+-----------------------------------
+
+Import the matrix_divided function
+>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+1. If no parameters are provided
+>>> matrix_divided()
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+2. Throws error when matrix is empty array
+>>> matrix_divided([], 1)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+3. Returns result when matrix contains lists of ints or floats
+>>> matrix_divided([[2,4,6]], 2)
+[[1.0, 2.0, 3.0]]
+
+4. Returns results to two decimal places if applicable
+>>> matrix_divided([[2, 2.15, 4]], 2)
+[[1.0, 1.07, 2.0]]
+
+5. Throws error if one element in matrix lists is not float or int
+>>> matrix_divided([[2, 3, "a"]], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+6. Correctly calculates when matrix contains multiple lists with same length
+>>> matrix_divided([[2, 4, 6], [8, 10, 12]], 2)
+[[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+
+7. Throws error when matrix contains multple rows with different lengths
+>>> matrix_divided([[2, 4, 6], [8, 10]], 2)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+8. Throws error when matrix contains multiple rows with different types
+>>> matrix_divided([[2,4,6], "hey"], 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+9. Throws error when div is not a number
+>>> matrix_divided([[2,4,6]], "a")
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+10. Throws error when div is 0
+>>> matrix_divided([[2, 4, 6]], 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
