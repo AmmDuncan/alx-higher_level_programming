@@ -80,7 +80,6 @@ def test_nqueen(N, index=0):
             board = get_available_cells(placed_cell, board)
 
     if len(cells) == N:
-        print(cells)
         return cells
     return None
 
@@ -88,12 +87,16 @@ def test_nqueen(N, index=0):
 if __name__ == "__main__":
     passed = []
     current = []
-    N = int(sys.argv[1])
-    print(N)
-    for i in range(N * N):
-        res = test_nqueen(N, i)
-        if res:
-            passed.append(res)
+    try:
+        N = int(sys.argv[1])
+        if (N < 4):
+            print("N must be at least 4")
+        for i in range(N):
+            res = test_nqueen(N, i)
+            if res:
+                passed.append(res)
 
-    for res in passed:
-        print(res)
+        for res in passed:
+            print(res)
+    except ValueError:
+        print("N must be a number")
