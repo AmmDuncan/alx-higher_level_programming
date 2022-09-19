@@ -81,7 +81,7 @@ class Rectangle():
     @classmethod
     def square(cls, size=0):
         """Create square from Rectangle class"""
-        validate_length(size)
+        validate_length(size, "size")
         return cls(size, size)
 
 
