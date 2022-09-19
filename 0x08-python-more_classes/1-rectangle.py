@@ -50,8 +50,9 @@ def is_int(val, name="value"):
     """Check if value is integer
 
     Args:
-        val (any): value to perform type check on 
-        name (str, optional): name to use in case of type error. Defaults to "value".
+        val (any): value to perform type check on
+        name (str, optional): name to use in case of
+            type error. Defaults to "value".
 
     Raises:
         TypeError: if val is not an integer
@@ -65,7 +66,8 @@ def is_not_negative(val, name="value"):
 
     Args:
         val (int): value to perform check on
-        name (str, optional): name to use in error message. Defaults to "value".
+        name (str, optional): name to use in error message.
+            Defaults to "value".
 
     Raises:
         ValueError: if value is negative
