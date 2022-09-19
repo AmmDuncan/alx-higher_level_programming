@@ -59,7 +59,8 @@ class Rectangle():
             return new_str
         for i in range(self.__height):
             end_char = "\n" if i != self.__height - 1 else ""
-            row = (Rectangle.print_symbol * self.__width) + end_char
+            row = ("{}".format(self.print_symbol)
+                   * self.__width) + end_char
             new_str += row
         return new_str
 
