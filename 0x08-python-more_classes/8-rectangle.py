@@ -76,7 +76,7 @@ class Rectangle():
         """Check if rect_1 is bigger that rect_2"""
         is_rect(rect_1, "rect_1")
         is_rect(rect_2, "rect_2")
-        return rect_1.area() >= rect_2.area()
+        return rect_1 if rect_1.area() >= rect_2.area() else rect_2
 
 
 def is_rect(val, name):
