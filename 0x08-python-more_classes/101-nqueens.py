@@ -24,6 +24,7 @@ def is_in_range(cell_1, cell_2):
 
 
 def check_valid(board):
+    """Check if queen placements on board is valid"""
     rows = []
     cols = []
     queen_cells = []
