@@ -10,78 +10,56 @@ def generate_board(size=4):
         size (int, optional): size of board. Defaults to 4.
 
     Returns:
-        list: list of lists representing board
+        list: matrix of None values
     """
-    matrix = [[x, y] for x in range(size) for y in range(size)]
+    matrix = [[None for _ in range(size)] for _ in range(size)]
     return matrix
 
 
-def place_queen(board, index=0):
-    """Check available cells and place a queen in one
-
-    Args:
-        board (list): matrix representing board
-
-    Returns:
-        tuple: chosen cell
-    """
-    if len(board):
-        return board[index]
-    return None
-
-
-def get_available_cells(cell, board):
-    """remove attackable cells from remaining
-    board cells.
-
-    Args:
-        cell (list): cell location for queen
-        board (list): remaining board cells
-    """
-    x, y = cell
-    available = []
-
-    for board_cell in board:
-        rem_x, rem_y = board_cell
-        on_horizontal = rem_y == y
-        on_vertical = rem_x == x
-        on_diagonal = is_diagonal(cell, board_cell)
-
-        if not (on_diagonal or on_horizontal or on_vertical):
-            available.append(board_cell)
-
-    return available
-
-
-def is_diagonal(cell_1, cell_2):
+def is_in_range(cell_1, cell_2):
     """Check if cells are on diagonal straight line"""
     x1, y1 = cell_1
     x2, y2 = cell_2
-    return abs(y2 - y1) == abs(x2 - x1)
+    return abs(y2 - y1) == abs(x2 - x1) or x1 == x2 or y1 == y2
 
 
-def test_nqueen(N, index=0):
-    """Check if possible to place N queens on N x N board"""
-    board = generate_board(N)
-    first = True
-    queen_count = 0
-    cells = []
+def check_valid(board):
+    rows = []
+    cols = []
+    queen_cells = []
+    for r in range(len(board)):
+        for c in range(len(board)):
+            if board[r][c]:
+                rows.append(r)
+                cols.append(c)
+                queen_cells.append((r, c))
+    rows = set(rows)
+    cols = set(cols)
 
-    while len(board) and queen_count < N:
-        if first:
-            placed_cell = place_queen(board, index)
-            first = False
-        else:
-            placed_cell = place_queen(board)
+    for cell1 in queen_cells:
+        for cell2 in queen_cells:
+            if cell1 != cell2 and is_in_range(cell1, cell2):
+                return False
 
-        if placed_cell:
-            cells.append(placed_cell)
-            queen_count += 1
-            board = get_available_cells(placed_cell, board)
+    return True
 
-    if len(cells) == N:
-        return cells
-    return None
+
+def solve_nqueen(n, row, result, current, board):
+    """Get cells queen can be placed in"""
+
+    # if row > n - 1 exit
+    if row == n:
+        result.append([*current])
+        return
+
+    for col in range(n):
+        board[row][col] = True
+        is_valid = check_valid(board)
+        if (is_valid):
+            current.append([row, col])
+            solve_nqueen(n, row + 1, result, current, board)
+            current.pop()
+        board[row][col] = None
 
 
 if __name__ == "__main__":
@@ -91,12 +69,13 @@ if __name__ == "__main__":
         N = int(sys.argv[1])
         if (N < 4):
             print("N must be at least 4")
+        board = generate_board(N)
         for i in range(N):
-            res = test_nqueen(N, i)
-            if res:
-                passed.append(res)
+            solve_nqueen(N, i, passed, current, board)
 
         for res in passed:
-            print(res)
-    except ValueError:
+            if len(res) == N:
+                print(res)
+    except TypeError as e:
+        print(e)
         print("N must be a number")
