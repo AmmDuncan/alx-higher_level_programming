@@ -67,6 +67,9 @@ if __name__ == "__main__":
     passed = []
     current = []
     try:
+        if (len(sys.argv) != 2):
+            print("Usage: nqueens N")
+            sys.exit(1)
         N = int(sys.argv[1])
         if (N < 4):
             print("N must be at least 4")
@@ -77,6 +80,5 @@ if __name__ == "__main__":
         for res in passed:
             if len(res) == N:
                 print(res)
-    except TypeError as e:
-        print(e)
+    except ValueError:
         print("N must be a number")
