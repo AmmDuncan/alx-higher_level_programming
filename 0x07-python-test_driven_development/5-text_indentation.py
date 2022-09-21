@@ -9,14 +9,20 @@ def text_indentation(text):
     if type(text) != str:
         raise TypeError("text must be a string")
 
+    new_str = ""
+    chunks = []
     keychars = ['.', '?', ':']
     text_len = len(text)
     for char_i in range(text_len):
         char = text[char_i]
-        not_first = char_i != 0
-        is_space_to_remove = char == " " and text[char_i - 1] in keychars
-        whitespace = not_first and is_space_to_remove
-        if not whitespace:
-            print(char, end="")
         if char in keychars:
-            print("\n")
+            new_str += "{}\n".format(char)
+            chunks.append(new_str)
+            new_str = ""
+        else:
+            new_str += char
+    chunks.append(new_str)
+    chunks = [*map(lambda c: c.strip(), chunks)]
+    new_str = "\n\n".join(chunks)
+    end = "" if new_str[len(new_str) - 1] == '\n' else "\n"
+    print(new_str, end=end)
