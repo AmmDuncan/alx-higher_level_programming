@@ -15,7 +15,7 @@ TypeError: text must be a string
 >>> text_indentation("Hello")
 Hello
 
-2. Prints blank lines when either ., ?, or : are met
+3. Prints blank lines when either ., ?, or : are met
 >>> text_indentation("Hello.")
 Hello.
 <BLANKLINE>
@@ -24,3 +24,8 @@ Boy:
 <BLANKLINE>
 How are you?
 <BLANKLINE>
+
+4. Throws error when given no params
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
