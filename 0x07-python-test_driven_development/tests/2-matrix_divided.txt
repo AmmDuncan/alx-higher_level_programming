@@ -60,3 +60,7 @@ TypeError: div must be a number
 Traceback (most recent call last):
 ...
 ZeroDivisionError: division by zero
+
+11. results in zeros when divided by infinity
+>>> matrix_divided([[2, 4, 6]], float('inf'))
+[[0.0, 0.0, 0.0]]

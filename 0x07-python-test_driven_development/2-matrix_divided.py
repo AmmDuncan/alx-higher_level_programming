@@ -9,7 +9,8 @@ def matrix_divided(matrix, div):
         matrix (list): list of lists
         div (int): number to divide matrix elements by
     """
-    matrix_type_err = "matrix must be a matrix (list of lists) of integers/floats"
+    matrix_type_err = "matrix must be a matrix (list of lists)" \
+        " of integers/floats"
 
     is_int_or_float(div, "div must be a number")
     if len(matrix) == 0:
