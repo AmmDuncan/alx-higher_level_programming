@@ -18,3 +18,15 @@ class TestMaxInteger(unittest.TestCase):
     def test_all_integer(self):
         """test with list of integers"""
         self.assertAlmostEqual(max_integer([1, 2, 6, 3]), 6)
+
+    def test_single_integer(self):
+        """test with single integer list"""
+        self.assertAlmostEqual(max_integer([2]), 2)
+
+    def test_with_negative(self):
+        """test with list containing negative integer"""
+        self.assertAlmostEqual(max_integer([3, 4, -1, 8]), 8)
+
+    def test_with_all_negative(self):
+        """test with list containing all negative integer"""
+        self.assertAlmostEqual(max_integer([-1, -5, -8]), -1)
