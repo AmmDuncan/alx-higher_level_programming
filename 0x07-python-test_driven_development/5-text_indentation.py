@@ -16,13 +16,14 @@ def text_indentation(text):
     for char_i in range(text_len):
         char = text[char_i]
         if char in keychars:
-            new_str += "{}\n".format(char)
+            new_str += char
             chunks.append(new_str)
             new_str = ""
         else:
             new_str += char
-    chunks.append(new_str)
+    if new_str:
+        chunks.append(new_str)
     chunks = [*map(lambda c: c.strip(), chunks)]
     new_str = "\n\n".join(chunks)
-    end = "" if new_str[len(new_str) - 1] == '\n' else "\n"
+    end = "\n\n" if text[text_len - 1] in keychars else ""
     print(new_str, end=end)
