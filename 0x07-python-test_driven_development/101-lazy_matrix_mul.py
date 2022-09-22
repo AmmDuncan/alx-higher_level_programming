@@ -5,7 +5,6 @@ import numpy as np
 
 
 def lazy_matrix_mul(m_a, m_b):
-    validate_args(m_a, m_b, "m_a", "m_b")
     mat_a = np.array(m_a)
     mat_b = np.array(m_b)
     return np.matmul(mat_a, mat_b)
