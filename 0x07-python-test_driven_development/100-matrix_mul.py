@@ -3,6 +3,7 @@
 
 
 def matrix_mul(m_a, m_b):
+    """Multiple two matrices"""
     validate_args(m_a, m_b, "m_a", "m_b")
     cols = len(m_b[0])
     rows = len(m_a)
