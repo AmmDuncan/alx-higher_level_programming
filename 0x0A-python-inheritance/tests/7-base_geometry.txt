@@ -34,3 +34,14 @@ ValueError: arg must be greater than 0
 
 6. integer_validator called with positive value
 >>> s.integer_validator("arg", 3)
+
+7. integer validator without 1 arguments
+>>> s.integer_validator("size")
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+8. integer_validator called with boolean
+>>> s.integer_validator("arg", True)
+Traceback (most recent call last):
+TypeError: arg must be an integer
