@@ -44,7 +44,7 @@ True
 
 6. print empty list
 >>> obj = MyList()
->>> print(obt)
+>>> print(obj)
 []
 >>> obj.print_sorted()
 []
