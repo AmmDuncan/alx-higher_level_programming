@@ -37,16 +37,22 @@ True
 >>> obj.append(-4)
 >>> obj.append(-1)
 >>> obj.append(-2)
+>>> print(obj)
+[-4, -1, -2]
 >>> obj.print_sorted()
 [-4, -2, -1]
 
 6. print empty list
 >>> obj = MyList()
+>>> print(obt)
+[]
 >>> obj.print_sorted()
 []
 
 7. print sorted with single element
 >>> obj.append(1)
+>>> print(obj)
+[1]
 >>> obj.print_sorted()
 [1]
 
