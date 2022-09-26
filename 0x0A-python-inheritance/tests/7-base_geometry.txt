@@ -54,5 +54,14 @@ TypeError: dict must be an integer
 10. with too many elements
 >>> s.integer_validator(1, 2, 3)
 Traceback (most recent call last):
-    ...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+11. with none
+>>> s.integer_validator("none", None)
+Traceback (most recent call last):
+TypeError: none must be an integer
+
+12. with float
+>>> s.integer_validator("float", 3.25)
+Traceback (most recent call last):
+TypeError: float must be an integer
