@@ -10,6 +10,10 @@ Import Class
 0. is instance of MyLIst
 >>> isinstance(obj, MyList)
 True
+>>> isinstance(obj, list)
+True
+>>> issubclass(obj.__class__, list)
+True
 
 1. object is instance of list class
 >>> isinstance(obj, list);
