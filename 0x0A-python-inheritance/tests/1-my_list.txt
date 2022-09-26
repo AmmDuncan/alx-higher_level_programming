@@ -27,3 +27,15 @@ True
 >>> obj.print_sorted()
 [1, 2, 3, 5]
 
+4. prints sorted with list containing negative integers
+>>> obj.append(-1)
+>>> obj.print_sorted()
+[-1, 1, 2, 3, 5]
+
+5. prints sorted with only negative values
+>>> obj = MyList()
+>>> obj.append(-4)
+>>> obj.append(-1)
+>>> obj.append(-2)
+>>> obj.print_sorted()
+[-4, -2, -1]
