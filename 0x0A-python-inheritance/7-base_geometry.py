@@ -23,5 +23,5 @@ def is_integer(value, name):
 
 def is_positive(value, name):
     """Validate if value is greater than 0"""
-    if type(value) is int and value <= 0:
+    if type(value) == int and value <= 0:
         raise ValueError("{} must be greater than 0".format(name))
