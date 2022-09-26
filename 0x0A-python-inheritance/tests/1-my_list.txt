@@ -1,0 +1,25 @@
+The "1-my_list" module
+======================
+Using "MyList" class
+--------------------
+
+Import Class
+>>> MyList = __import__("1-my_list").MyList
+
+1. object is instance of list class
+>>> obj = MyList()
+>>> isinstance(obj, list);
+True
+
+2. prints array is order of index
+>>> obj.append(1)
+>>> obj.append(3)
+>>> obj.append(2)
+>>> obj.append(5)
+>>> print(obj)
+[1, 3, 2, 5]
+
+3. prints sorted list
+>>> obj.print_sorted()
+[1, 2, 3, 5]
+
