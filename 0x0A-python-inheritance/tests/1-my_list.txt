@@ -49,3 +49,8 @@ True
 >>> obj.append(1)
 >>> obj.print_sorted()
 [1]
+
+8. print already sorted element
+>>> obj.append(2)
+>>> obj.print_sorted()
+[1, 2]
