@@ -44,3 +44,8 @@ True
 >>> obj = MyList()
 >>> obj.print_sorted()
 []
+
+7. print sorted with single element
+>>> obj.append(1)
+>>> obj.print_sorted()
+[1]
