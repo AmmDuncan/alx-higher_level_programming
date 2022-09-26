@@ -1,0 +1,36 @@
+The "7-base_geometry" module
+============================
+Using "BaseGeometry" class
+--------------------------
+
+Import class
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> s = BaseGeometry()
+
+1. area raises exception
+>>> s.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
+2. integer validator without arguments
+>>> s.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+3. integer_validator called with non integer
+>>> s.integer_validator("arg", "a")
+Traceback (most recent call last):
+TypeError: arg must be an integer
+
+4. integer_validator called with 0
+>>> s.integer_validator("arg", 0)
+Traceback (most recent call last):
+ValueError: arg must be greater than 0
+
+5. integer_validator called with negative value
+>>> s.integer_validator("arg", -3)
+Traceback (most recent call last):
+ValueError: arg must be greater than 0
+
+6. integer_validator called with positive value
+>>> s.integer_validator("arg", 3)
