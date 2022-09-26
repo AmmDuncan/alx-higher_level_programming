@@ -65,3 +65,18 @@ TypeError: none must be an integer
 >>> s.integer_validator("float", 3.25)
 Traceback (most recent call last):
 TypeError: float must be an integer
+
+13. with tuple
+>>> s.integer_validator("tuple", (1,))
+Traceback (most recent call last):
+TypeError: tuple must be an integer
+
+14. with empty list
+>>> s.integer_validator("list", [])
+Traceback (most recent call last):
+TypeError: list must be an integer
+
+15. with list
+>>> s.integer_validator("list", [1, 2, 3])
+Traceback (most recent call last):
+TypeError: list must be an integer
