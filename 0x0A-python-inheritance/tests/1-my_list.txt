@@ -5,9 +5,13 @@ Using "MyList" class
 
 Import Class
 >>> MyList = __import__("1-my_list").MyList
+>>> obj = MyList()
+
+0. is instance of MyLIst
+>>> isinstance(obj, MyList)
+True
 
 1. object is instance of list class
->>> obj = MyList()
 >>> isinstance(obj, list);
 True
 
