@@ -39,3 +39,9 @@ True
 >>> obj.append(-2)
 >>> obj.print_sorted()
 [-4, -2, -1]
+
+6. list with string
+>>> obj.append("a")
+>>> obj.print_sorted()
+Traceback (most recent call last):
+TypeError: '<' not supported between instances of 'str' and 'int'
