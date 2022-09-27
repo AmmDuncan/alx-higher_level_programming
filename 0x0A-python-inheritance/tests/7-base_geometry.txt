@@ -1,0 +1,95 @@
+The "7-base_geometry" module
+============================
+Using "BaseGeometry" class
+--------------------------
+
+Import class
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+>>> s = BaseGeometry()
+
+1. area raises exception
+>>> s.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
+2. integer validator without arguments
+>>> s.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+3. integer_validator called with non integer
+>>> s.integer_validator("arg", "a")
+Traceback (most recent call last):
+TypeError: arg must be an integer
+
+4. integer_validator called with 0
+>>> s.integer_validator("arg", 0)
+Traceback (most recent call last):
+ValueError: arg must be greater than 0
+
+5. integer_validator called with negative value
+>>> s.integer_validator("arg", -3)
+Traceback (most recent call last):
+ValueError: arg must be greater than 0
+
+6. integer_validator called with positive value
+>>> s.integer_validator("arg", 3)
+
+7. integer validator without 1 arguments
+>>> s.integer_validator("size")
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+8. integer_validator called with boolean
+>>> s.integer_validator("arg", True)
+Traceback (most recent call last):
+TypeError: arg must be an integer
+
+9. integer_validator called with dict
+>>> s.integer_validator("dict", {'a': 'hello'})
+Traceback (most recent call last):
+TypeError: dict must be an integer
+
+10. with too many elements
+>>> s.integer_validator(1, 2, 3)
+Traceback (most recent call last):
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+11. with none
+>>> s.integer_validator("none", None)
+Traceback (most recent call last):
+TypeError: none must be an integer
+
+12. with float
+>>> s.integer_validator("float", 3.25)
+Traceback (most recent call last):
+TypeError: float must be an integer
+
+13. with tuple
+>>> s.integer_validator("tuple", (1,))
+Traceback (most recent call last):
+TypeError: tuple must be an integer
+
+14. with empty list
+>>> s.integer_validator("list", [])
+Traceback (most recent call last):
+TypeError: list must be an integer
+
+15. with list
+>>> s.integer_validator("list", [1, 2, 3])
+Traceback (most recent call last):
+TypeError: list must be an integer
+
+16. with empty dict
+>>> s.integer_validator("dict", {})
+Traceback (most recent call last):
+TypeError: dict must be an integer
+
+17. with set
+>>> s.integer_validator("set", {1, 2 ,3})
+Traceback (most recent call last):
+TypeError: set must be an integer
+
+18. valid 
+>>> s.integer_validator("valid", 345483)

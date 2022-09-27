@@ -1,0 +1,70 @@
+The "1-my_list" module
+======================
+Using "MyList" class
+--------------------
+
+Import Class
+>>> MyList = __import__("1-my_list").MyList
+>>> obj = MyList()
+
+0. is instance of MyLIst
+>>> isinstance(obj, MyList)
+True
+>>> isinstance(obj, list)
+True
+>>> issubclass(obj.__class__, list)
+True
+
+1. object is instance of list class
+>>> isinstance(obj, list);
+True
+
+2. prints array is order of index
+>>> obj.append(1)
+>>> obj.append(3)
+>>> obj.append(2)
+>>> obj.append(5)
+>>> print(obj)
+[1, 3, 2, 5]
+
+3. prints sorted list
+>>> obj.print_sorted()
+[1, 2, 3, 5]
+
+4. prints sorted with list containing negative integers
+>>> obj.append(-1)
+>>> print(obj)
+[1, 3, 2, 5, -1]
+>>> obj.print_sorted()
+[-1, 1, 2, 3, 5]
+
+5. prints sorted with only negative values
+>>> obj = MyList()
+>>> obj.append(-4)
+>>> obj.append(-1)
+>>> obj.append(-2)
+>>> print(obj)
+[-4, -1, -2]
+>>> obj.print_sorted()
+[-4, -2, -1]
+
+6. print empty list
+>>> obj = MyList()
+>>> print(obj)
+[]
+>>> obj.print_sorted()
+[]
+
+7. print sorted with single element
+>>> obj.append(1)
+>>> print(obj)
+[1]
+>>> obj.print_sorted()
+[1]
+
+8. print already sorted element
+>>> obj.append(2)
+>>> print(obj)
+[1, 2]
+>>> obj.print_sorted()
+[1, 2]
