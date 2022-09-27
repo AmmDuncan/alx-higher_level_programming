@@ -13,12 +13,11 @@ class Student():
 
     def to_json(self, attrs=None):
         """Convert Student object to json object"""
-        if type(attrs) == list\
-                and len(attrs) > 0 \
-                and all(type(s) == str for s in attrs):
+        if (type(attrs) == list and
+                all(type(s) == str for s in attrs)):
             new_dict = {}
-            for key in self.__dict__:
-                if key in attrs:
+            for key in attrs:
+                if key in self.__dict__:
                     new_dict[key] = self.__dict__[key]
             return new_dict
         return self.__dict__
