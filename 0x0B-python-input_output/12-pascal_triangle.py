@@ -5,6 +5,10 @@
 def pascal_triangle(n):
     """Generate list of lists representing
     pascal triable"""
+
+    if n <= 0:
+        return []
+
     res = [[]] * (n + 2)
     res[1] = [1]
     res[2] = [1, 1]
