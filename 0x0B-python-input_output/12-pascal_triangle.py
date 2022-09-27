@@ -11,9 +11,8 @@ def pascal_triangle(n):
 
     res = [[]] * (n + 2)
     res[1] = [1]
-    res[2] = [1, 1]
 
-    for i in range(3, n + 1):
+    for i in range(2, n + 1):
         row = []
         for j in range(i):
             last = i - 1
