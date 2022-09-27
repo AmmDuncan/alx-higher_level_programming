@@ -8,11 +8,9 @@ load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
 def main():
     filename = "add_item.json"
-    with open(filename, "r+", encoding="utf-8") as file:
-        content = file.read()
-    if len(content):
+    try:
         items = load_from_json_file(filename)
-    else:
+    except:
         items = []
     new_items = sys.argv[1:]
     items.extend(new_items)
