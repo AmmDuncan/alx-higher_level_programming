@@ -10,6 +10,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Instantiate Rectange object"""
         super().__init__(id)
+        is_positive_integer(width, "width")
+        is_positive_integer(height, "height")
+        is_non_negative_integer(x, "x")
+        is_non_negative_integer(y, "y")
         self.__width = width
         self.__height = height
         self.__x = x
