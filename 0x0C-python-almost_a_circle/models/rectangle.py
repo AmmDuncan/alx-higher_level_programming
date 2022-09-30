@@ -62,3 +62,13 @@ class Rectangle(Base):
         """Setter for y attribute"""
         is_non_negative_integer(value, "y")
         self.__y = value
+
+    def area(self):
+        """Calculate area of rectangle"""
+        return self.__width * self.__height
+
+    def display(self):
+        h = self.__height
+        w = self.__width
+        for _ in range(h):
+            print("#" * w)
