@@ -10,7 +10,7 @@ class TestSquareClass(unittest.TestCase):
     def test_instantiation(self):
         """🧪 Test square instantiation"""
         s = Square(5, 2, 1, 32)
-        self.assertEqual(str(s), "[Square] (32) 2/1 - 5/5")
+        self.assertEqual(str(s), "[Square] (32) 2/1 - 5")
 
     def test_size_validation(self):
         """🧪 Test validation on size property"""

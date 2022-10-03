@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Base module"""
 import json
+from operator import truediv
 
 
 class Base():
@@ -54,3 +55,44 @@ class Base():
         obj = cls(1, 1, 0, 0)
         obj.update(**dictionary)
         return obj
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Save objects to csv file"""
+        cls_name = cls.__name__
+        with open(f"{cls_name}.csv", "w") as file:
+            if cls_name == 'Rectangle':
+                file.write('id, width, height, x, y\n')
+                for obj in list_objs:
+                    file.write(
+                        f"{obj.id}, {obj.width}, {obj.height}, {obj.x}, {obj.y}\n")
+            elif cls_name == "Square":
+                file.write('id, size, x, y\n')
+                for obj in list_objs:
+                    file.write(
+                        f"{obj.id}, {obj.size}, {obj.x}, {obj.y}\n")
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Load objects to csv file"""
+        cls_name = cls.__name__
+        res_list = []
+        with open(f"{cls_name}.csv", "r") as file:
+            if cls_name == 'Rectangle':
+                lines = file.readlines()
+                for line in lines[1:]:
+                    args = line.rstrip().split(', ')
+                    args = [*map(lambda x: int(x.strip()), args)]
+                    kwargs = dict(
+                        zip('id, width, height, x, y'.split(', '), args))
+                    res_list.append(cls.create(**kwargs))
+
+            elif cls_name == "Square":
+                lines = file.readlines()
+                for line in lines[1:]:
+                    args = line.rstrip().split(', ')
+                    args = [*map(lambda x: int(x.strip()), args)]
+                    kwargs = dict(
+                        zip('id, size, x, y'.split(', '), args))
+                    res_list.append(cls.create(**kwargs))
+        return res_list
