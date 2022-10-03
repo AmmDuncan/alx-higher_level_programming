@@ -21,3 +21,16 @@ class TestSquareClass(unittest.TestCase):
             s.size = 0
         with self.assertRaises(ValueError):
             s.size = -3
+
+    def test_to_dictionary(self):
+        """🧪 Test to_dictionary method"""
+        s = Square(5, 2, 1, 32)
+        self.assertDictEqual(s.to_dictionary(), {
+                             'id': 32, 'size': 5, 'x': 2, 'y': 1})
+
+    def test_create_instance(self):
+        """🧪 Test create method"""
+        s1 = Square(5, 1, 1)
+        s1_dict = s1.to_dictionary()
+        s2 = Square.create(**s1_dict)
+        self.assertEqual(str(s1), str(s2))

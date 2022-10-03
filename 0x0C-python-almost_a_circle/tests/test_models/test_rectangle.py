@@ -113,3 +113,16 @@ class TestRectangeClass(unittest.TestCase):
         self.assertEqual(str(r), "[Rectangle] (46) 2/1 - 20/12")
         r.update(x=3, y=4)
         self.assertEqual(str(r), "[Rectangle] (46) 3/4 - 20/12")
+
+    def test_to_dictionary(self):
+        """🧪 Test to_dictionary method"""
+        r = Rectangle(5, 4,  2, 1, 32)
+        self.assertDictEqual(r.to_dictionary(), {
+                             'id': 32, 'width': 5, 'height': 4, 'x': 2, 'y': 1})
+
+    def test_create_instance(self):
+        """🧪 Test create method"""
+        r1 = Rectangle(5, 3, 1)
+        r1_dict = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dict)
+        self.assertEqual(str(r1), str(r2))

@@ -114,3 +114,12 @@ class Rectangle(Base):
             self.__width,
             self.__height
         ))
+
+    def to_dictionary(self):
+        rect_dict = {}
+        rect_dict['id'] = self.id
+        rect_dict['width'] = self.width
+        rect_dict['height'] = self.height
+        rect_dict['x'] = self.x
+        rect_dict['y'] = self.y
+        return rect_dict

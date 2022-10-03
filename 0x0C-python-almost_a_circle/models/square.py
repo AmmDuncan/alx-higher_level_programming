@@ -47,6 +47,14 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def to_dictionary(self):
+        rect_dict = {}
+        rect_dict['id'] = self.id
+        rect_dict['size'] = self.width
+        rect_dict['x'] = self.x
+        rect_dict['y'] = self.y
+        return rect_dict
+
     def __str__(self):
         return ("[Square] ({}) {}/{} - {}/{}".format(
             self.id,
