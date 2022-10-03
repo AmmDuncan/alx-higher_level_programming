@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""Define Rectange class"""
+"""Define Rectangle class"""
 from models.base import Base
 from utils.validators import is_positive_integer, is_non_negative_integer
 
 
 class Rectangle(Base):
-    """Representation of Rectange"""
+    """Representation of Rectangle"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Instantiate Rectange object"""
+        """Instantiate Rectangle object"""
         super().__init__(id)
         is_positive_integer(width, "width")
         is_positive_integer(height, "height")
@@ -63,6 +63,35 @@ class Rectangle(Base):
         is_non_negative_integer(value, "y")
         self.__y = value
 
+    def update(self, *args, **kwargs):
+        """Update Rectangle object"""
+        if args and len(args):
+            nones = [None] * 5
+            for i in range(5):
+                if i < len(args):
+                    nones[i] = args[i]
+            id, width, height, x, y = nones
+        else:
+            id = kwargs.setdefault('id', None)
+            width = kwargs.setdefault('width', None)
+            height = kwargs.setdefault('height', None)
+            x = kwargs.setdefault('x', None)
+            y = kwargs.setdefault('y', None)
+        if id:
+            self.id = id
+        if width:
+            is_positive_integer(width, "width")
+            self.__width = width
+        if height:
+            is_positive_integer(height, "height")
+            self.__height = height
+        if x:
+            is_non_negative_integer(x, "x")
+            self.__x = x
+        if y:
+            is_non_negative_integer(y, "y")
+            self.__y = y
+
     def area(self):
         """Calculate area of rectangle"""
         return self.__width * self.__height
@@ -70,5 +99,18 @@ class Rectangle(Base):
     def display(self):
         h = self.__height
         w = self.__width
+        for _ in range(self.__y):
+            print()
         for _ in range(h):
+            for _ in range(self.__x):
+                print(" ", end="")
             print("#" * w)
+
+    def __str__(self):
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id,
+            self.__x,
+            self.__y,
+            self.__width,
+            self.__height
+        ))

@@ -88,8 +88,28 @@ class TestRectangeClass(unittest.TestCase):
         r.height = 4
         self.assertEqual(r.area(), 28)
 
-    # def test_display(self):
-    #     """🧪 Test display method"""
-    #     r = Rectangle(3, 2, 0, 0)
-    #     res = "###\n###\n"
-    #     self.assert
+    def test_str(self):
+        """🧪 Test area method"""
+        r = Rectangle(5, 3, 0, 0, 101)
+        self.assertEqual(str(r), "[Rectangle] (101) 0/0 - 5/3")
+
+    def test_update(self):
+        """🧪 Test update method"""
+        r = Rectangle(5, 3, 0, 0, 101)
+        self.assertEqual(str(r), "[Rectangle] (101) 0/0 - 5/3")
+        r.update(64)
+        self.assertEqual(str(r), "[Rectangle] (64) 0/0 - 5/3")
+        r.update(64, 8)
+        self.assertEqual(str(r), "[Rectangle] (64) 0/0 - 8/3")
+        r.update(64, 8, 4)
+        self.assertEqual(str(r), "[Rectangle] (64) 0/0 - 8/4")
+        r.update(64, 8, 4, 2)
+        self.assertEqual(str(r), "[Rectangle] (64) 2/0 - 8/4")
+        r.update(64, 8, 4, 2, 1)
+        self.assertEqual(str(r), "[Rectangle] (64) 2/1 - 8/4")
+        r.update(id=46)
+        self.assertEqual(str(r), "[Rectangle] (46) 2/1 - 8/4")
+        r.update(width=20, height=12)
+        self.assertEqual(str(r), "[Rectangle] (46) 2/1 - 20/12")
+        r.update(x=3, y=4)
+        self.assertEqual(str(r), "[Rectangle] (46) 3/4 - 20/12")
