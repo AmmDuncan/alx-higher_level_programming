@@ -53,9 +53,9 @@ class Base():
     def create(cls, **dictionary):
         """Create instance object"""
         if cls.__name__ == 'Rectangle':
-            obj = cls(1, 1, 0, 0, 0)
+            obj = cls(1, 1, 0, 0)
         elif cls.__name__ == 'Square':
-            obj = cls(1, 0, 0, 0)
+            obj = cls(1, 0, 0)
         obj.update(**dictionary)
         return obj
 
