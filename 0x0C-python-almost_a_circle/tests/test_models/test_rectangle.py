@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Test Rectange Class"""
 import unittest
+import json
 from models.rectangle import Rectangle
 
 
@@ -127,3 +128,14 @@ class TestRectangeClass(unittest.TestCase):
         r1_dict = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dict)
         self.assertEqual(str(r1), str(r2))
+
+    def test_save_to_file(self):
+        """🧪 Test save to file"""
+        r1 = Rectangle(5, 3, 0, 0, 23)
+        r2 = Rectangle(5, 2, 1, 1, 24)
+        lst = [r1, r2]
+        dict_list = [*map(lambda x: x.to_dictionary(), lst)]
+        Rectangle.save_to_file(lst)
+        with open('Rectangle.json', 'r') as file:
+            content = file.read()
+            self.assertListEqual(dict_list, json.loads(content))
