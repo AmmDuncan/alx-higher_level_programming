@@ -52,7 +52,10 @@ class Base():
     @classmethod
     def create(cls, **dictionary):
         """Create instance object"""
-        obj = cls(1, 1, 0, 0, 0)
+        if cls.__name__ == 'Rectangle':
+            obj = cls(1, 1, 0, 0, 0)
+        elif cls.__name__ == 'Square':
+            obj = cls(1, 0, 0, 0)
         obj.update(**dictionary)
         return obj
 
