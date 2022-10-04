@@ -44,10 +44,13 @@ class Base():
     @classmethod
     def load_from_file(cls):
         """Save list of objects to file"""
-        with open(f"{cls.__name__}.json", "r") as file:
-            list_of_obj = Base.from_json_string(file.read())
-            dict_list = [*map(lambda obj: cls.create(**obj), list_of_obj)]
-            return dict_list
+        try:
+            with open(f"{cls.__name__}.json", "r") as file:
+                list_of_obj = Base.from_json_string(file.read())
+                dict_list = [*map(lambda obj: cls.create(**obj), list_of_obj)]
+                return dict_list
+        except FileNotFoundError:
+            return []
 
     @classmethod
     def create(cls, **dictionary):
