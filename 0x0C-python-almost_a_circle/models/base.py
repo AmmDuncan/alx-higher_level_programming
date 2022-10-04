@@ -65,7 +65,13 @@ class Base():
                 file.write('id, width, height, x, y\n')
                 for obj in list_objs:
                     file.write(
-                        f"{obj.id}, {obj.width}, {obj.height}, {obj.x}, {obj.y}\n")
+                        "{}, {}, {}, {}, {}\n".format(
+                            obj.id,
+                            obj.width,
+                            obj.height,
+                            obj.x,
+                            obj.y
+                        ))
             elif cls_name == "Square":
                 file.write('id, size, x, y\n')
                 for obj in list_objs:

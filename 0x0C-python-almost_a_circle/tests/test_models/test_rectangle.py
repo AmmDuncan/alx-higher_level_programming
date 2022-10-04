@@ -118,7 +118,8 @@ class TestRectangeClass(unittest.TestCase):
         """🧪 Test to_dictionary method"""
         r = Rectangle(5, 4,  2, 1, 32)
         self.assertDictEqual(r.to_dictionary(), {
-                             'id': 32, 'width': 5, 'height': 4, 'x': 2, 'y': 1})
+                             'id': 32, 'width': 5,
+                             'height': 4, 'x': 2, 'y': 1})
 
     def test_create_instance(self):
         """🧪 Test create method"""

@@ -40,7 +40,9 @@ class TestBaseClass(unittest.TestCase):
         with open('Rectangle.json', 'r') as file:
             content = file.read()
             self.assertEqual(
-                content, '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}, {"id": 2, "width": 2, "height": 4, "x": 0, "y": 0}]')
+                content, '[{"id": 1, "width": 10, "height": 7, '
+                '"x": 2, "y": 8}, {"id": 2, "width": 2, "height":'
+                ' 4, "x": 0, "y": 0}]')
 
     def test_from_json_string(self):
         """🧪 Test from_json_string"""
