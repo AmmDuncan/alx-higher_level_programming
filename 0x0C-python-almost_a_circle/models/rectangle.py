@@ -97,6 +97,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
+        """Display rectangle in stdout"""
         h = self.__height
         w = self.__width
         for _ in range(self.__y):
@@ -107,6 +108,7 @@ class Rectangle(Base):
             print("#" * w)
 
     def __str__(self):
+        """String representation of rectangle"""
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id,
             self.__x,
@@ -116,6 +118,7 @@ class Rectangle(Base):
         ))
 
     def to_dictionary(self):
+        """Get dictionary properties as dictionary"""
         rect_dict = {}
         rect_dict['id'] = self.id
         rect_dict['width'] = self.width
