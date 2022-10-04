@@ -26,6 +26,10 @@ class TestRectangeClass(unittest.TestCase):
             Rectangle(5, 0, 0, 0)
         with self.assertRaises(ValueError):
             Rectangle(5, 3, -1, 0)
+        with self.assertRaises(ValueError):
+            Rectangle(-1, 2, -1, 0)
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2, -1, 0)
 
     def test_attributes_hidden(self):
         """🧪 Check if attributes are hidden"""
