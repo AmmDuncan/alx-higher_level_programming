@@ -45,7 +45,6 @@ class Square(Rectangle):
     @size.setter
     def size(self, value):
         """Setter for size property"""
-        is_positive_integer(value, "size")
         self.width = value
         self.height = value
 
