@@ -20,7 +20,7 @@ class Base():
     def to_json_string(list_dictionaries=None):
         """Convert list of dicts to json"""
         if list_dictionaries is None:
-            return '"[]"'
+            return '[]'
         return json.dumps(list_dictionaries)
 
     @staticmethod
@@ -35,7 +35,7 @@ class Base():
         """Save list of objects to file"""
         with open(f"{cls.__name__}.json", "w") as file:
             if list_objs is None:
-                file.write('"[]"')
+                file.write('[]')
             else:
                 dict_list = [*map(lambda obj: obj.to_dictionary(), list_objs)]
                 json_s = Base.to_json_string(dict_list)
