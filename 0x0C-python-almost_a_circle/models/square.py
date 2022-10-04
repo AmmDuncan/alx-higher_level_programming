@@ -39,15 +39,18 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """Getter for size property"""
         return self.width
 
     @size.setter
     def size(self, value):
+        """Setter for size property"""
         is_positive_integer(value, "size")
         self.width = value
         self.height = value
 
     def to_dictionary(self):
+        """Get square instance properties as dict"""
         rect_dict = {}
         rect_dict['id'] = self.id
         rect_dict['size'] = self.width
@@ -56,6 +59,7 @@ class Square(Rectangle):
         return rect_dict
 
     def __str__(self):
+        """String representation of square object"""
         return ("[Square] ({}) {}/{} - {}".format(
             self.id,
             self.x,
