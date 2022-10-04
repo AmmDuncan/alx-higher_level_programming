@@ -52,7 +52,7 @@ class Base():
     @classmethod
     def create(cls, **dictionary):
         """Create instance object"""
-        obj = cls(1, 1, 0, 0)
+        obj = cls(1, 1, 0, 0, 0)
         obj.update(**dictionary)
         return obj
 
