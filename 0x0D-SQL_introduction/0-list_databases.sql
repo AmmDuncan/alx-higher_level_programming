@@ -1,2 +1,2 @@
-/*Show all databases on the server*/
+-- Show all databases on the server
 SHOW DATABASES;
