@@ -1,7 +1,7 @@
 -- Shows with ratings
 SELECT 
 	title,
-	SUM(tsr.rate) as rating
+	SUM(tsr.rate) AS rating
 FROM
 	tv_shows t
 	INNER JOIN tv_show_ratings tsr
