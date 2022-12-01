@@ -1,3 +1,4 @@
+#!/usr/bin/node
 exports.converter = function (base) {
   const chars = '0123456789abcdef';
   return (val) => {
