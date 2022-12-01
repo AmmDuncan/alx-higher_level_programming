@@ -1,13 +1,13 @@
 #!/usr/bin/node
 exports.converter = function (base) {
-  const chars = '0123456789abcdef';
   return (val) => {
-    const converted = [];
-    while (val > base) {
-      converted.unshift(chars[val % base]);
-      val = Math.floor(val / base);
+    function getChar (v) {
+      if (v < base) {
+        return '0123456789abcdef'[v % base];
+      } else {
+        return getChar(Math.floor(val / base)) + '0123456789abcdef'[v % base];
+      }
     }
-    converted.unshift(chars[val % base]);
-    return converted.join('');
+    return getChar(val);
   };
 };
