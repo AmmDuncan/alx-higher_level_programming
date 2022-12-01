@@ -12,7 +12,7 @@ module.exports = class Rectangle {
     const cols = this.width;
 
     for (let i = 0; i < rows; i++) {
-      console.log(Array(cols).fill('X'));
+      console.log(Array(cols).fill('X').join(''));
     }
   }
 };
