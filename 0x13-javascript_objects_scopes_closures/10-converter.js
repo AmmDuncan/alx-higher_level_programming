@@ -5,7 +5,7 @@ exports.converter = function (base) {
       if (v < base) {
         return '0123456789abcdefghijklmnopqrstuvwxyz'[v % base];
       } else {
-        return getChar(Math.floor(val / base)) + '0123456789abcdefghijklmnopqrstuvwxyz'[v % base];
+        return getChar(Math.floor(v / base)) + '0123456789abcdefghijklmnopqrstuvwxyz'[v % base];
       }
     }
     return getChar(val);
