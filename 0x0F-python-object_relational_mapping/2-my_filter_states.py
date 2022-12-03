@@ -21,7 +21,8 @@ if __name__ == '__main__':
     cur.execute('''
                 SELECT id, name
                 FROM states
-                WHERE name LIKE '{}'
+                WHERE CAST(name AS BINARY)
+                LIKE CAST('{}' AS BINARY)
                 ORDER BY id;
                 '''.format(sys.argv[4]))
     rows = cur.fetchall()
