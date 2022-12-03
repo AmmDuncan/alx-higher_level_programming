@@ -21,7 +21,7 @@ if __name__ == '__main__':
     cur.execute('''
                 SELECT id, name
                 FROM states
-                WHERE name = '{}'
+                WHERE name LIKE '{}'
                 ORDER BY id;
                 '''.format(sys.argv[4]))
     rows = cur.fetchall()
