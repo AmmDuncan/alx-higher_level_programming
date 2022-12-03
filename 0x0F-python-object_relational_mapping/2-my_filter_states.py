@@ -21,9 +21,9 @@ if __name__ == '__main__':
     cur.execute('''
                 SELECT id, name
                 FROM states
-                WHERE name = %s
+                WHERE name = '{}'
                 ORDER BY id;
-                ''', (sys.argv[4],))
+                '''.format(sys.argv[4]))
     rows = cur.fetchall()
     for row in rows:
         print(row)
