@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+'''
+Select all states from provided db 'states' table
+'''
 import MySQLdb
 import sys
 
@@ -15,7 +18,11 @@ db = MySQLdb.connect(host=host,
                      db=db_name)
 cur = db.cursor()
 
-cur.execute('SELECT id, name FROM states')
+cur.execute('''
+            SELECT id, name
+            FROM states
+            ORDER BY id
+            ''')
 rows = cur.fetchall()
 for row in rows:
     print(row)
