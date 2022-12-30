@@ -3,11 +3,10 @@
  * Script to print arguments provided
  */
 const argList = process.argv.slice(2);
+const res = argList.join('\n');
 
-if (argList.length) {
-  for (const arg of argList) {
-    console.log(arg);
-  }
-} else {
+if (!res) {
   console.log('No argument');
+} else {
+  console.log(res);
 }
