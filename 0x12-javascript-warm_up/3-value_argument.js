@@ -2,6 +2,12 @@
 /**
  * Script to print arguments provided
  */
-for (const arg of process.argv.slice(2)) {
-  console.log(arg);
+const argList = process.argv.slice(2);
+
+if (argList.length) {
+  for (const arg of argList) {
+    console.log(arg);
+  }
+} else {
+  console.log('No argument');
 }
