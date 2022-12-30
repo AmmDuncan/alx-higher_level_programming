@@ -3,7 +3,7 @@
  * Script to print arguments provided
  */
 const argList = process.argv.slice(2);
-const res = argList.join('\n');
+const res = argList[0];
 
 if (!res) {
   console.log('No argument');
